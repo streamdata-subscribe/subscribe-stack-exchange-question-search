@@ -15,28 +15,28 @@ produces:
 consumes:
 - application/json
 paths:
-/search:
-  get:
-    summary: Search for Tensorflow
-    description: Search questions with Tensorflow in the title.
-    operationId: search
-    x-api-path-slug: search-get
-    parameters:
-    - in: query
-      name: intitle
-      default: Tensorflow
-    - in: query
-      name: order
-      default: desc
-    - in: query
-      name: site
-      default: stackoverflow
-    - in: query
-      name: sort
-      default: activity
-    responses:
-      200:
-        description: OK
-    tags:
-    - Search
+  /search:
+    get:
+      summary: Search for Tensorflow
+      description: Search questions with Tensorflow in the title.
+      operationId: search
+      x-api-path-slug: search-get
+      parameters:
+      - in: query
+        name: intitle
+        default: Tensorflow
+      - in: query
+        name: order
+        default: desc
+      - in: query
+        name: site
+        default: stackoverflow
+      - in: query
+        name: sort
+        default: activity
+      responses:
+        200:
+          description: OK
+      tags:
+      - Search
 ---

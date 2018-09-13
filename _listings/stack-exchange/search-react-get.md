@@ -15,28 +15,28 @@ produces:
 consumes:
 - application/json
 paths:
-/search:
-  get:
-    summary: Search for React
-    description: Search questions with React in the title.
-    operationId: search
-    x-api-path-slug: search-get
-    parameters:
-    - in: query
-      name: intitle
-      default: React
-    - in: query
-      name: order
-      default: desc
-    - in: query
-      name: site
-      default: stackoverflow
-    - in: query
-      name: sort
-      default: activity
-    responses:
-      200:
-        description: OK
-    tags:
-    - Search
+  /search:
+    get:
+      summary: Search for React
+      description: Search questions with React in the title.
+      operationId: search
+      x-api-path-slug: search-get
+      parameters:
+      - in: query
+        name: intitle
+        default: React
+      - in: query
+        name: order
+        default: desc
+      - in: query
+        name: site
+        default: stackoverflow
+      - in: query
+        name: sort
+        default: activity
+      responses:
+        200:
+          description: OK
+      tags:
+      - Search
 ---

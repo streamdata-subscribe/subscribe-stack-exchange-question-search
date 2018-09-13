@@ -15,28 +15,28 @@ produces:
 consumes:
 - application/json
 paths:
-/search:
-  get:
-    summary: Search for Kafka
-    description: Search questions with Kafka in the title.
-    operationId: search
-    x-api-path-slug: search-get
-    parameters:
-    - in: query
-      name: intitle
-      default: Kafka
-    - in: query
-      name: order
-      default: desc
-    - in: query
-      name: site
-      default: stackoverflow
-    - in: query
-      name: sort
-      default: activity
-    responses:
-      200:
-        description: OK
-    tags:
-    - Search
+  /search:
+    get:
+      summary: Search for Kafka
+      description: Search questions with Kafka in the title.
+      operationId: search
+      x-api-path-slug: search-get
+      parameters:
+      - in: query
+        name: intitle
+        default: Kafka
+      - in: query
+        name: order
+        default: desc
+      - in: query
+        name: site
+        default: stackoverflow
+      - in: query
+        name: sort
+        default: activity
+      responses:
+        200:
+          description: OK
+      tags:
+      - Search
 ---
