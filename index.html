@@ -281,20 +281,22 @@ title: Streamdata.io API Gallery - Stack Exchange Topic Subscribe
     	console.log("url: " + url);
   		console.log("name: " + name);
   		console.log("summary: " + summary);
-    	//console.log("token: " + token);
-  		//console.log("stack_exchange_access_token: " + stack_exchange_access_token);
+    	console.log("token: " + token);
+  		console.log("stack_exchange_access_token: " + stack_exchange_access_token);
 
   		userAgent = 'Stack Exchange Topic Subscribe/0.1 by Streamdata.io';
 
   		if(stack_exchange_access_token!='')
   			{
-  			var headers = ['Authorization: Basic ' + stack_exchange_access_token,'User-Agent: ' + userAgent];
+  			//var headers = ['Authorization: Basic ' + stack_exchange_access_token,'User-Agent: ' + userAgent];
   			}
   		else
   			{
   			var headers = ['User-Agent: ' + userAgent];
   			}
 
+      var headers = ['User-Agent: ' + userAgent];
+      var_dump(headers);
       // create the StreamdataEventSource Object
       eventSource = streamdataio.createEventSource(url, token, headers);
 
