@@ -28,19 +28,19 @@ title: Streamdata.io API Gallery - Stack Exchange Topic Subscribe
   	var eventSource = null;
   	var responses = [];
 
-  	var stack-exchange_access_token = getUrlVar('stack-exchange_access_token');
-  	if(stack-exchange_access_token!='')
+  	var stack_exchange_access_token = getUrlVar('stack_exchange_access_token');
+  	if(stack_exchange_access_token!='')
   		{
   		// Setting a cookie value
-  		Cookies.set('stack-exchange_access_token', stack-exchange_access_token);
+  		Cookies.set('stack_exchange_access_token', stack_exchange_access_token);
   		}
   	else
   		{
-  		stack-exchange_access_token = Cookies.get('stack-exchange_access_token');
+  		stack_exchange_access_token = Cookies.get('stack_exchange_access_token');
   		}
 
-  	//console.log("stack-exchange_access_token: " + stack-exchange_access_token);
-  	if(stack-exchange_access_token)
+  	//console.log("stack_exchange_access_token: " + stack_exchange_access_token);
+  	if(stack_exchange_access_token)
   		{
   			table = document.getElementById('master-table');
   			var tr = document.createElement("tr");
@@ -281,13 +281,13 @@ title: Streamdata.io API Gallery - Stack Exchange Topic Subscribe
   		console.log("name: " + name);
   		console.log("summary: " + summary);
     	//console.log("token: " + token);
-  		//console.log("stack-exchange_access_token: " + stack-exchange_access_token);
+  		//console.log("stack_exchange_access_token: " + stack_exchange_access_token);
 
   		userAgent = 'Stack Exchange Topic Subscribe/0.1 by Streamdata.io';
 
-  		if(stack-exchange_access_token!='')
+  		if(stack_exchange_access_token!='')
   			{
-  			var headers = ['Authorization: Basic ' + stack-exchange_access_token,'User-Agent: ' + userAgent];
+  			var headers = ['Authorization: Basic ' + stack_exchange_access_token,'User-Agent: ' + userAgent];
   			}
   		else
   			{
