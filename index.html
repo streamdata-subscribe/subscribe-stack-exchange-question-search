@@ -373,6 +373,9 @@ title: Streamdata.io API Gallery - Stack Exchange Topic Subscribe
            {% for entry in listing_object %}
              {% if entry.name %}
               {% for api in entry.apis %}
+
+                {{  entry.name }} == {{ listing.x-collection-name }}<br />
+
                  {% if entry.name == listing.x-collection-name %}
                    {% assign api_name = entry.name %}
                    {% assign api_slug = api_name | replace: ' ','-' | replace: '/','' | replace: '&','-' | replace: '=','-' | replace: '{','-' | replace: '}','-' | replace: '?','-' | replace: '_','-' | replace: '--','-' | downcase %}
