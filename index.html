@@ -298,7 +298,7 @@ title: Streamdata.io API Gallery - Stack Exchange Topic Subscribe
       var headers = ['User-Agent: ' + userAgent];
       console.log(headers);
       // create the StreamdataEventSource Object
-      eventSource = streamdataio.createEventSource(url, token, headers);
+      eventSource = streamdataio.createEventSource(url, token);
 
       eventSource
        .onOpen(function() {
