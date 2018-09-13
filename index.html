@@ -279,10 +279,10 @@ title: Streamdata.io API Gallery - Stack Exchange Topic Subscribe
     function connect(url,token,id,name,summary) {
 
     	console.log("url: " + url);
-  		console.log("name: " + name);
+  		//console.log("name: " + name);
   		console.log("summary: " + summary);
-    	console.log("token: " + token);
-  		console.log("stack_exchange_access_token: " + stack_exchange_access_token);
+    	//console.log("token: " + token);
+  		//console.log("stack_exchange_access_token: " + stack_exchange_access_token);
 
   		userAgent = 'Stack Exchange Topic Subscribe/0.1 by Streamdata.io';
 
@@ -296,7 +296,7 @@ title: Streamdata.io API Gallery - Stack Exchange Topic Subscribe
   			}
 
       var headers = ['User-Agent: ' + userAgent];
-      console.log(headers);
+      //console.log(headers);
       // create the StreamdataEventSource Object
       eventSource = streamdataio.createEventSource(url, token);
 
