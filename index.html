@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Streamdata.io API Gallery - Reddit Topic Subscribe
+title: Streamdata.io API Gallery - Stack Exchange Topic Subscribe
 ---
 
 {% assign listing_object = site.listings %}
@@ -16,8 +16,8 @@ title: Streamdata.io API Gallery - Reddit Topic Subscribe
   <table width="55%" style="padding: 25px;" id="master-table">
     <tr>
       <td align="left">
-        <p>This is a prototype to demonstrate how APIs can be turned into streaming topical subscriptions using an <a href="http://openapis.org/">OpenAPI</a> to define topical searches, which allow users to subscribe to streams of each search from <a href="https://www.reddit.com/dev/api/">the Reddit API</a>, and Streamdata.io.</p><br />
-        <p>You can use this without authenticating with Reddit, but if you <a href="http://oauth.apievangelist.com/reddit/?action=login">authenticate and obtain an OAuth token from Reddit</a> *, you will be able to make more API calls to their API. If you <a href="http://oauth.apievangelist.com/github/?action=login">authenticate with GitHub, and obtain a GitHub OAuth token</a> ** you will be able to save the an JSON responses to a private GitHub repository within your account.</p>
+        <p>This is a prototype to demonstrate how APIs can be turned into streaming topical subscriptions using an <a href="http://openapis.org/">OpenAPI</a> to define topical searches, which allow users to subscribe to streams of each search from <a href="https://www.stack-exchange.com/dev/api/">the Stack Exchange API</a>, and Streamdata.io.</p><br />
+        <p>You can use this without authenticating with Stack Exchange, but if you <a href="http://oauth.apievangelist.com/stack-exchange/?action=login">authenticate and obtain an OAuth token from Stack Exchange</a> *, you will be able to make more API calls to their API. If you <a href="http://oauth.apievangelist.com/github/?action=login">authenticate with GitHub, and obtain a GitHub OAuth token</a> ** you will be able to save the an JSON responses to a private GitHub repository within your account.</p>
       </td>
     </tr>
   </table>
@@ -28,25 +28,25 @@ title: Streamdata.io API Gallery - Reddit Topic Subscribe
   	var eventSource = null;
   	var responses = [];
 
-  	var reddit_access_token = getUrlVar('reddit_access_token');
-  	if(reddit_access_token!='')
+  	var stack-exchange_access_token = getUrlVar('stack-exchange_access_token');
+  	if(stack-exchange_access_token!='')
   		{
   		// Setting a cookie value
-  		Cookies.set('reddit_access_token', reddit_access_token);
+  		Cookies.set('stack-exchange_access_token', stack-exchange_access_token);
   		}
   	else
   		{
-  		reddit_access_token = Cookies.get('reddit_access_token');
+  		stack-exchange_access_token = Cookies.get('stack-exchange_access_token');
   		}
 
-  	//console.log("reddit_access_token: " + reddit_access_token);
-  	if(reddit_access_token)
+  	//console.log("stack-exchange_access_token: " + stack-exchange_access_token);
+  	if(stack-exchange_access_token)
   		{
   			table = document.getElementById('master-table');
   			var tr = document.createElement("tr");
   			var td = document.createElement("td");
   			var strong = document.createElement("strong");
-  			var text = document.createTextNode('You Are Authenticated With Reddit!');
+  			var text = document.createTextNode('You Are Authenticated With Stack Exchange!');
   			strong.appendChild(text);
   			td.appendChild(strong);
   			td.setAttribute("align","center");
@@ -65,14 +65,14 @@ title: Streamdata.io API Gallery - Reddit Topic Subscribe
 
         var github = new Github({token: github_access_token,auth: "oauth"});
 
-  			github_repo_name = "reddit-store";
+  			github_repo_name = "stack-exchange-store";
 
   			var user = github.getUser();
 
   			Cookies.set('github_repo_name', github_repo_name);
   			Cookies.set('github_user_name', github_user_name);
 
-  			var newrepo = user.createRepo({name: github_repo_name,user: github_user_name,auto_init: true,description: 'A Reddit data store, using Streamdata.io'});
+  			var newrepo = user.createRepo({name: github_repo_name,user: github_user_name,auto_init: true,description: 'A Stack Exchange data store, using Streamdata.io'});
   		}
   	else
   		{
@@ -83,7 +83,7 @@ title: Streamdata.io API Gallery - Reddit Topic Subscribe
 
   			var github = new Github({token: github_access_token,auth: "oauth"});
 
-  			github_repo_name = "reddit-store";
+  			github_repo_name = "stack-exchange-store";
 
   			var user = github.getUser();
 
@@ -113,7 +113,7 @@ title: Streamdata.io API Gallery - Reddit Topic Subscribe
   		{
 
   		data = responses[id];
-  		//console.log(data);
+  		console.log(data);
 
   		// replace with regex
   		filename = summary.replace(" ","-");
@@ -144,7 +144,7 @@ title: Streamdata.io API Gallery - Reddit Topic Subscribe
   		tr.appendChild(td);
   		table.appendChild(tr);
 
-  		if(id=='reddit')
+  		if(id=='stack-exchange')
   			{
 
   			github_user_name = Cookies.get('github_user_name');
@@ -281,13 +281,13 @@ title: Streamdata.io API Gallery - Reddit Topic Subscribe
   		console.log("name: " + name);
   		console.log("summary: " + summary);
     	//console.log("token: " + token);
-  		//console.log("reddit_access_token: " + reddit_access_token);
+  		//console.log("stack-exchange_access_token: " + stack-exchange_access_token);
 
-  		userAgent = 'Reddit Topic Subscribe/0.1 by Streamdata.io';
+  		userAgent = 'Stack Exchange Topic Subscribe/0.1 by Streamdata.io';
 
-  		if(reddit_access_token!='')
+  		if(stack-exchange_access_token!='')
   			{
-  			var headers = ['Authorization: Basic ' + reddit_access_token,'User-Agent: ' + userAgent];
+  			var headers = ['Authorization: Basic ' + stack-exchange_access_token,'User-Agent: ' + userAgent];
   			}
   		else
   			{
@@ -336,7 +336,7 @@ title: Streamdata.io API Gallery - Reddit Topic Subscribe
   	base = 'http://streamdata.subscribe.engine.laneworks.net/generate/stream/';
 
   	//openapi
-  	//openapi = 'http://subscribe.streamdata.gallery/subscribe/reddit/search-istio-get/';
+  	//openapi = 'http://subscribe.streamdata.gallery/subscribe/stack-exchange/search-istio-get/';
 
     pull = base + '?openapi_url=' + openapi + '&id=' + id + '&org={{ site.github_org }}&repo={{ site.github_repo }}';
     //console.log(pull);
@@ -438,10 +438,10 @@ title: Streamdata.io API Gallery - Reddit Topic Subscribe
   <table width="55%" style="padding: 25px;">
     <tr>
       <td align="left">
-        <p><a href="https://github.com/streamdata-subscribe/subscribe-reddit">This project is open source and available on Github</a>. If you have any questions, or come across that doesn't work, or have any ideas about features that we should add, <a href="https://github.com/streamdata-subscribe/subscribe-reddit/issues">submit an issue on Github</a>. We are working to add other features in the near future so make sure and return often or contact us about how we can help.</p><br />
+        <p><a href="https://github.com/streamdata-subscribe/subscribe-stack-exchange">This project is open source and available on Github</a>. If you have any questions, or come across that doesn't work, or have any ideas about features that we should add, <a href="https://github.com/streamdata-subscribe/subscribe-stack-exchange/issues">submit an issue on Github</a>. We are working to add other features in the near future so make sure and return often or contact us about how we can help.</p><br />
         <p>
           <strong>
-            * Requires account level OAuth access to your Reddit account.<br />
+            * Requires account level OAuth access to your Stack Exchange account.<br />
             ** Requires repo level OAuth access to be able to create GitHub repos and write JSON files to the repo.
           </strong>
         </p>
