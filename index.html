@@ -114,7 +114,7 @@ title: Streamdata.io API Gallery - Stack Exchange Topic Subscribe
   		{
 
   		data = responses[id];
-  		console.log(data);
+  		//console.log(data);
 
   		// replace with regex
   		filename = summary.replace(" ","-");
@@ -152,7 +152,7 @@ title: Streamdata.io API Gallery - Stack Exchange Topic Subscribe
   			github_repo_name = Cookies.get('github_repo_name');
   			github_access_token = Cookies.get('github_access_token');
 
-  			results = data.data.children;
+  			results = data.items;
 
   			json_dump = unescape(encodeURIComponent(JSON.stringify(results)));
 
@@ -186,9 +186,9 @@ title: Streamdata.io API Gallery - Stack Exchange Topic Subscribe
 
   				var tr = document.createElement("tr");
   				var td = document.createElement("td");
-  				var text = document.createTextNode(entry.data.title + ' (score: ' + entry.data.score + ')');
+  				var text = document.createTextNode(entry.title + ' (score: ' + entry.score + ')');
   				a = document.createElement("a");
-  				a.setAttribute("href",entry.data.url);
+  				a.setAttribute("href",entry.link);
   				a.setAttribute("style",'color:#000; text-decoration: none;');
   				a.appendChild(text);
   				td.appendChild(a);
