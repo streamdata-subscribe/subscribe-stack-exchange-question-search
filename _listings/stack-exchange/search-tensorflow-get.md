@@ -1,12 +1,13 @@
 ---
 swagger: "2.0"
+x-collection-name: Stack Exchange
+x-complete: 0
 info:
-  title: Search - Tensorflow
-  description: Searching for Tensorflow
-  version: 1.0.0
-x-collection-name: Reddit  
-host: www.reddit.com
-basePath: /
+  title: Stack Exchange Search Subscription
+  description: This is a subscription template for Stack Exchange search.
+  version: "2.0"
+host: api.stackexchange.com
+basePath: /2.2
 schemes:
 - http
 produces:
@@ -14,20 +15,28 @@ produces:
 consumes:
 - application/json
 paths:
-  /search.json:
-    get:
-      summary: Search for Tensorflow
-      description: Searching Reddit for Tensorflow
-      operationId: search
-      parameters:
-      - in: query
-        name: q
-        description: The query.
-        type: string
-        default: Tensorflow
-      responses:
-        200:
-          description: OK
-      tags:
-      - Search
+/search:
+  get:
+    summary: Search for Tensorflow
+    description: Search questions with Tensorflow in the title.
+    operationId: search
+    x-api-path-slug: search-get
+    parameters:
+    - in: query
+      name: intitle
+      default: Tensorflow
+    - in: query
+      name: order
+      default: desc
+    - in: query
+      name: site
+      default: stackoverflow
+    - in: query
+      name: sort
+      default: activity
+    responses:
+      200:
+        description: OK
+    tags:
+    - Search
 ---
