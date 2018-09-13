@@ -389,7 +389,6 @@ title: Streamdata.io API Gallery - Stack Exchange Topic Subscribe
            {% for path in listing.paths %}
              {% assign path_name = path[0] %}
              {% assign api_path_slug = listing.info.title | replace: ' - ','-' | downcase %}
-             api_path_slug: {{ api_path_slug }}<br />
              {% for method in path[1] %}
                {% assign method_details = method[1] %}
                {% assign verb = method[0] %}
